@@ -16,3 +16,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+default['uwsgi']['version'] = "1.9.19"
+default['uwsgi']['download_url'] = "http://projects.unbit.it/downloads"
+default['uwsgi']['ssl_port'] = 443
+default['uwsgi']['install_dir'] = "/opt/installs"
+default['uwsgi']['config_dir'] = "/etc/uwsgi"
+default['uwsgi']['apps_available_dir'] = "/etc/uwsgi/apps-available"
+default['uwsgi']['apps_enabled_dir'] = "/etc/uwsgi/apps-enabled"
+default['uwsgi']['log_dir'] = "/var/log/uwsgi"
+default['uwsgi']['build_directives'] = "pulselocker.ini"
