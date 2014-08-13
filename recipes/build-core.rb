@@ -20,22 +20,12 @@
 ###
 # Recipe to build the uWSGI core from source
 ###
-remote_file "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['uwsgi']['version']}.tar.gz" do
-  source "#{node['uwsgi']['download_url']}/uwsgi-#{node['uwsgi']['version']}.tar.gz"
-  action :create_if_missing
-end
 
-bash "extract_uwsgi_#{node['uwsgi']['version']}_source" do
-  cwd Chef::Config[:file_cache_path]
-  code <<-EOH
-    tar -zxvf uwsgi-#{node['uwsgi']['version']}.tar.gz
-  EOH
-end
+include_recipe "uwsgi::_download"
 
 bash "build_uwsgi_#{node['uwsgi']['version']}_core" do
-  cwd Chef::Config[:file_cache_path]
+  cwd "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['uwsgi']['version']}"
   code <<-EOH
-    cd uwsgi-#{node['uwsgi']['version']}
     python uwsgiconfig.py --build core
   EOH
 end
