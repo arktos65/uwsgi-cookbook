@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: uwsgi
-# Recipe:: default
+# Recipe:: install
 #
 # Copyright 2014, Pulselocker, Inc.
 #
@@ -17,15 +17,6 @@
 # limitations under the License.
 #
 
-default['uwsgi']['version'] = "1.9.19"
-default['uwsgi']['download_url'] = "http://projects.unbit.it/downloads"
-default['uwsgi']['service'] = "uwsgi-server"
-
 ###
-# Plugins - override :compile to determine whether to compile a plugin or not
+# Recipe to install application and configure server environment
 ###
-default['uwsgi']['plugins'] = [
-    { :name => "python", :compile => true },
-    { :name => "emperor", :compile => true }
-]
-

@@ -1,10 +1,13 @@
-# uwsgi-cookbook
+UWSGI COOKBOOK
+==============
 
-TODO: Enter the cookbook description here.
+uWSGI is a high performance application server framework for Python, Ruby, and other applications.  This cookbook
+compiles from source a modular installation of uWSGI.  Using this approach allows for a tailored installation using
+wrapper cookbooks.
 
 ## Supported Platforms
 
-TODO: List your supported platforms.
+Supported platforms:  Ubuntu 12.04, 14.04.
 
 ## Attributes
 
@@ -39,4 +42,5 @@ Include `uwsgi` in your node's `run_list`:
 
 ## License and Authors
 
-Author:: YOUR_NAME (<YOUR_EMAIL>)
+Author:: Sean M. Sullivan (<sean@pulselocker.com>) - Pulselocker, Inc.
+

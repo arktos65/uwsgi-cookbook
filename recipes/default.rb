@@ -16,3 +16,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+# Install dependencies if necessary
+if node['platform_family'] == 'debian'
+  include_recipe 'apt::default'
+end
+include_recipe 'build-essential'
+include_recipe 'python'
+
+# Compile the uWSGI core application
+include_recipe 'uwsgi::build-core'
+
