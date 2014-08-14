@@ -31,7 +31,6 @@ directory node['uwsgi']['core']['directory'] do
 end
 
 node['uwsgi']['plugins'].each do | plugin |
-  log "Processing plugin #{plugin['name']}"
   if plugin['compile']
     bash "compiling_#{plugin['name']}_plugin" do
       cwd "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['uwsgi']['version']}"
