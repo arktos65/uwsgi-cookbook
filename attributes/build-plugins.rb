@@ -85,7 +85,7 @@ default['uwsgi']['plugins'] = [
     { :name => "pty", :compile => false },
     { :name => "pypy", :compile => false },
     { :name => "python", :compile => true },
-    { :name => "pyuwsgi", :compile => true },
+    { :name => "pyuwsgi", :compile => false },
     { :name => "rack", :compile => false },
     { :name => "rados", :compile => false },
     { :name => "rawrouter", :compile => true },

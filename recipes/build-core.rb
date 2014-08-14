@@ -40,7 +40,7 @@ end
 bash "installing_uwsgi_#{node['uwsgi']['version']}_core_binary" do
   cwd Chef::Config[:file_cache_path]
   code <<-EOH
-  mv uwsgi-#{node['uwsgi']['version']}/uwsgi #{node['uwsgi']['core']['directory']}/#{node['uwsgi']['core']['binary']}
+  cp -fv uwsgi-#{node['uwsgi']['version']}/uwsgi #{node['uwsgi']['core']['directory']}/#{node['uwsgi']['core']['binary']}
   chown root:root #{node['uwsgi']['core']['directory']}/#{node['uwsgi']['core']['binary']}
   chmod 0755 #{node['uwsgi']['core']['directory']}/#{node['uwsgi']['core']['binary']}
   EOH

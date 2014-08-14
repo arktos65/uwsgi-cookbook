@@ -17,4 +17,35 @@
 # limitations under the License.
 #
 
-# python uwsgiconfig.py --plugin plugins/psgi core
+###
+# Recipe to compile all the required plugins
+###
+
+include_recipe "uwsgi::_download"
+
+directory node['uwsgi']['core']['directory'] do
+  owner "root"
+  group "root"
+  mode 00755
+  action :create
+end
+
+node['uwsgi']['plugins'].each do | plugin |
+  log "Processing plugin #{plugin['name']}"
+  if plugin['compile']
+    bash "compiling_#{plugin['name']}_plugin" do
+      cwd "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['uwsgi']['version']}"
+      code <<-EOH
+        python uwsgiconfig.py --plugin plugins/#{plugin['name']} core
+      EOH
+    end
+    bash "installing_#{plugin['name']}_plugin" do
+      cwd "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['uwsgi']['version']}"
+      code <<-EOH
+        cp -fv #{plugin['name']}_plugin.so #{node['uwsgi']['core']['directory']}/
+        chown root:root #{node['uwsgi']['core']['directory']}/#{plugin['name']}_plugin.so
+        chmod 0755 #{node['uwsgi']['core']['directory']}/#{plugin['name']}_plugin.so
+      EOH
+    end
+  end
+end

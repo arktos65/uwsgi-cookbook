@@ -26,4 +26,6 @@ include_recipe 'python'
 
 # Compile the uWSGI core application
 include_recipe 'uwsgi::build-core'
+include_recipe 'uwsgi::build-plugins'
+
 
