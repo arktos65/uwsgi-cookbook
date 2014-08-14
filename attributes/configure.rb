@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: uwsgi
-# Recipe:: install
+# Recipe:: configure
 #
 # Copyright 2014, Pulselocker, Inc.
 #
@@ -17,6 +17,14 @@
 # limitations under the License.
 #
 
-###
-# Recipe to install application and configure server environment
-###
+default['uwsgi']['config']['directories'] = [
+    { 'etc' => "/usr/local/etc/uwsgi" },
+    { 'share' => "/usr/local/share/uwsgi" },
+    { 'apps_available' => "/usr/local/etc/uwsgi/apps-available" },
+    { 'apps_enabled' => "/usr/local/etc/uwsgi/apps-enabled" },
+    { 'logs' => "/var/log/uwsgi" },
+    { 'run' => "/run/uwsgi" }
+]
+
+default['uwsgi']['config']['namespace'] = "app"
+default['uwsgi']['config']['appname'] = "app"
