@@ -17,14 +17,13 @@
 # limitations under the License.
 #
 
-default['uwsgi']['config']['directories'] = [
-    { 'etc' => "/usr/local/etc/uwsgi" },
-    { 'share' => "/usr/local/share/uwsgi" },
-    { 'apps_available' => "/usr/local/etc/uwsgi/apps-available" },
-    { 'apps_enabled' => "/usr/local/etc/uwsgi/apps-enabled" },
-    { 'logs' => "/var/log/uwsgi" },
-    { 'run' => "/run/uwsgi" }
-]
+default['uwsgi']['config']['directories']['etc'] = "/etc/uwsgi"
+default['uwsgi']['config']['directories']['apps_available'] = "/etc/uwsgi/apps-available"
+default['uwsgi']['config']['directories']['apps_enabled'] = "/etc/uwsgi/apps-enabled"
+default['uwsgi']['config']['directories']['logs'] = "/var/log/uwsgi"
+default['uwsgi']['config']['directories']['run'] = "/run/uwsgi"
+default['uwsgi']['config']['directories']['run_app'] = "/var/run/uwsgi/app"
+default['uwsgi']['config']['directories']['share'] = "/usr/share/uwsgi"
+default['uwsgi']['config']['directories']['share_init'] = "/usr/share/uwsgi/init"
+default['uwsgi']['config']['directories']['share_conf'] = "/usr/share/uwsgi/conf"
 
-default['uwsgi']['config']['namespace'] = "app"
-default['uwsgi']['config']['appname'] = "app"

@@ -2,7 +2,7 @@
 # Cookbook Name:: uwsgi
 # Recipe:: _debian
 #
-# Copyright 2014, Pulselocker, Inc.
+# Copyright 2014, uwsgi, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -28,10 +28,45 @@ template "/etc/logrotate.d/uwsgi.ini" do
   action :create
   notifies :restart, "service[rsyslog]", :delayed
 end
-template "#{node['pulselocker']['config']['share']}/default.ini" do
-  source "default.ini.erb"
+template "#{node['uwsgi']['config']['directories']['share_conf']}/default.ini" do
+  source "default.ini"
   owner "root"
   group "root"
   mode 0755
   action :create
+end
+template "#{node['uwsgi']['config']['directories']['share_init']}/do_command" do
+  source "do_command.sh"
+  owner "root"
+  group "root"
+  mode 0755
+  action :create
+end
+template "#{node['uwsgi']['config']['directories']['share_init']}/snippets" do
+  source "snippets.sh"
+  owner "root"
+  group "root"
+  mode 0755
+  action :create
+end
+template "#{node['uwsgi']['config']['directories']['share_init']}/specific_daemon" do
+  source "specific_daemon.sh"
+  owner "root"
+  group "root"
+  mode 0755
+  action :create
+end
+
+# Set up the init script
+template "/etc/init.d/uwsgi" do
+  source "uwsgi.sh"
+  mode 0755
+  owner "root"
+  group "root"
+  action :create
+end
+service "uwsgi" do
+  Chef::Provider::Service::Init::Debian
+  supports :status => true, :restart => true, :reload => true
+  action [ :enable, :start ]
 end

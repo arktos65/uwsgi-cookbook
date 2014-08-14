@@ -5,6 +5,9 @@ uWSGI is a high performance application server framework for Python, Ruby, and o
 compiles from source a modular installation of uWSGI.  Using this approach allows for a tailored installation using
 wrapper cookbooks.
 
+The Debian configure recipe is somewhat reverse engineered from the uwsgi apt package, but set up in such a way to
+allow flexibile configuration.
+
 ## Supported Platforms
 
 Supported platforms:  Ubuntu 12.04, 14.04.
