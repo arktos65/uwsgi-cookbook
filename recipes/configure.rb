@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: uwsgi
-# Recipe:: default
+# Recipe:: configure
 #
 # Copyright 2014, Pulselocker, Inc.
 #
@@ -17,17 +17,21 @@
 # limitations under the License.
 #
 
-# Install dependencies if necessary
-if node['platform_family'] == 'debian'
-  include_recipe 'apt::default'
+###
+# Recipe to install application and configure server environment
+###
+
+# Create the runtime directories
+log "Creating uWSGI runtime directories"
+node['uwsgi']['config']['directories'].each do | key, value |
+  directory value do
+    owner "root"
+    group "root"
+    mode 00755
+    action :create
+  end
 end
-include_recipe 'rsyslog'
-include_recipe 'build-essential'
-include_recipe 'python'
 
-# Compile the uWSGI core application
-include_recipe 'uwsgi::build-core'
-include_recipe 'uwsgi::build-plugins'
-include_recipe 'uwsgi::configure'
-
-
+if node['platform_family'] == 'debian'
+  include_recipe "uwsgi::_debian"
+end

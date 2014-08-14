@@ -17,17 +17,9 @@
 # limitations under the License.
 #
 
-# Install dependencies if necessary
-if node['platform_family'] == 'debian'
-  include_recipe 'apt::default'
-end
-include_recipe 'rsyslog'
-include_recipe 'build-essential'
-include_recipe 'python'
+default['uwsgi']['version'] = "1.9.19"
+default['uwsgi']['download_url'] = "http://projects.unbit.it/downloads"
+default['uwsgi']['service'] = "uwsgi-server"
 
-# Compile the uWSGI core application
-include_recipe 'uwsgi::build-core'
-include_recipe 'uwsgi::build-plugins'
-include_recipe 'uwsgi::configure'
 
 

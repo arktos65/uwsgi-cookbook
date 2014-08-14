@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: uwsgi
-# Recipe:: default
+# Recipe:: build-core
 #
 # Copyright 2014, Pulselocker, Inc.
 #
@@ -17,17 +17,5 @@
 # limitations under the License.
 #
 
-# Install dependencies if necessary
-if node['platform_family'] == 'debian'
-  include_recipe 'apt::default'
-end
-include_recipe 'rsyslog'
-include_recipe 'build-essential'
-include_recipe 'python'
-
-# Compile the uWSGI core application
-include_recipe 'uwsgi::build-core'
-include_recipe 'uwsgi::build-plugins'
-include_recipe 'uwsgi::configure'
-
-
+default['uwsgi']['core']['binary'] = 'uwsgi-core'
+default['uwsgi']['core']['directory'] = '/usr/local/bin/uwsgi'

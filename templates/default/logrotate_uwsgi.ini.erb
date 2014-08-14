@@ -1,0 +1,9 @@
+"<%= node['uwsgi']['config']['directories']['logs'] %>/*.log" "<%= node['uwsgi']['config']['directories']['logs'] %>/*/*.log" {
+copytruncate
+daily
+rotate 5
+compress
+delaycompress
+missingok
+notifempty
+}

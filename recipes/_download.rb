@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: uwsgi
-# Recipe:: default
+# Recipe:: _download
 #
 # Copyright 2014, Pulselocker, Inc.
 #
@@ -17,17 +17,17 @@
 # limitations under the License.
 #
 
-# Install dependencies if necessary
-if node['platform_family'] == 'debian'
-  include_recipe 'apt::default'
+###
+# Recipe to download and extract the source code
+###
+remote_file "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['uwsgi']['version']}.tar.gz" do
+  source "#{node['uwsgi']['download_url']}/uwsgi-#{node['uwsgi']['version']}.tar.gz"
+  action :create_if_missing
 end
-include_recipe 'rsyslog'
-include_recipe 'build-essential'
-include_recipe 'python'
 
-# Compile the uWSGI core application
-include_recipe 'uwsgi::build-core'
-include_recipe 'uwsgi::build-plugins'
-include_recipe 'uwsgi::configure'
-
-
+bash "extract_uwsgi_#{node['uwsgi']['version']}_source" do
+  cwd Chef::Config[:file_cache_path]
+  code <<-EOH
+    tar -zxvf uwsgi-#{node['uwsgi']['version']}.tar.gz
+  EOH
+end
