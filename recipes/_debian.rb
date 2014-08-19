@@ -56,6 +56,13 @@ template "#{node['uwsgi']['config']['directories']['share_init']}/specific_daemo
   mode 0755
   action :create
 end
+template "/etc/default/uwsgi" do
+  source "default_uwsgi.ini"
+  owner "root"
+  group "root"
+  mode 0744
+  action :create
+end
 
 # Set up the init script
 template "/etc/init.d/uwsgi" do

@@ -18,4 +18,4 @@
 #
 
 default['uwsgi']['core']['binary'] = 'uwsgi-core'
-default['uwsgi']['core']['directory'] = '/usr/local/bin/uwsgi'
+default['uwsgi']['core']['directory'] = '/usr/bin/uwsgi'

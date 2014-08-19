@@ -38,7 +38,7 @@
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
 DESC="app server(s)"
 NAME="uwsgi"
-DAEMON="/usr/bin/uwsgi-core"
+DAEMON="/usr/bin/uwsgi/uwsgi-core"
 SCRIPTNAME="/etc/init.d/${NAME}"
 
 UWSGI_CONFDIR="/etc/uwsgi"
