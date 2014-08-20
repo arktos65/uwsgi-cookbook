@@ -28,7 +28,7 @@ default['uwsgi']['plugins'] = [
     { :name => "asyncio", :compile => false },
     { :name => "cache", :compile => false },
     { :name => "carbon", :compile => false },
-    { :name => "cgi", :compile => false },
+    { :name => "cgi", :compile => true },
     { :name => "cheaper_backlog2", :compile => false },
     { :name => "cheaper_busyness", :compile => false },
     { :name => "clock_monotonics", :compile => false },
