@@ -29,7 +29,8 @@ contains the path where the target will be copied to.  When using the :enable ac
 `node['uwsgi']['config']['directories']['apps_enabled']` specifies where the symlink will be created.  
 
 In a wrapper cookbook, if you wish to change the default locations of the apps_available and apps_enabled attributes,
-use the node.set in your recipe before using the uwsgi_application resource.
+use the node.set in your recipe before using the uwsgi_application resource. Your application configuration files
+should be stored in the templates directory.
 
 ## Attributes
 
