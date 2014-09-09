@@ -52,7 +52,7 @@ should be stored in the templates directory.
     default['uwsgi']['config']['directories']['share_init'] = "/usr/share/uwsgi/init"
     default['uwsgi']['config']['directories']['share_conf'] = "/usr/share/uwsgi/conf"
     
-Control which plugins are compiled by setting each plugin's :compile attribute to true or false.  See the 
+Control which plugins are compiled by setting each plugins' :compile attribute to true or false.  See the 
 `attributes/build-plugins.rb` for a list of available plugins.
 
 ## Usage
