@@ -1,6 +1,10 @@
 UWSGI COOKBOOK CHANGELOG
 ========================
 
+1.0.0
+-----
+- Version bump for production release.
+
 0.2.0
 -----
 - Added LWRP for uWSGI application management.
