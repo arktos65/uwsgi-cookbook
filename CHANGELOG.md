@@ -1,6 +1,10 @@
 UWSGI COOKBOOK CHANGELOG
 ========================
 
+1.0.1
+-----
+- Added Travis CI testing support.
+
 1.0.0
 -----
 - Version bump for production release.
