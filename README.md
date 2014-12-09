@@ -1,6 +1,6 @@
 UWSGI COOKBOOK
 ==============
-![Build Status](https://secure.travis-ci.org/arktos65/uwsgi-cookbook.png)](http://travis-ci.org/arktos65/uwsgi-cookbook)
+![Build Status](https://secure.travis-ci.org/arktos65/uwsgi-cookbook.png) | (http://travis-ci.org/arktos65/uwsgi-cookbook)
 
 uWSGI is a high performance application server framework for Python, Ruby, and other applications.  This cookbook
 compiles from source a modular installation of uWSGI.  Using this approach allows for a tailored installation using
