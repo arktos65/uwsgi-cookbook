@@ -1,5 +1,6 @@
 language: ruby
+gemfile:
+   - test/support/Gemfile
 rvm:
   - 1.9.3
-script:
-  - travis_wait 20 kitchen test default-ubuntu-1204 --destroy=always
+script: bundle exec rake foodcritic
