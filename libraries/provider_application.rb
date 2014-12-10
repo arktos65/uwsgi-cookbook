@@ -33,11 +33,11 @@ class Chef
             Chef::Log.debug("#{@new_resource} uWSGI application exists - nothing to do.")
           else
             converge_by("Creating uWSGI application: #{@new_resource}") do
-              file "#{application_file}" do
+              file application_file do
                 owner 'root'
                 group 'root'
                 mode 0755
-                content ::File.open("#{@new_resource.source}").read
+                content ::File.open(@new_resource.source).read
                 action :create
               end
               Chef::Log.info("#{@new_resource} application created.")
@@ -54,7 +54,7 @@ class Chef
               end
             end
             converge_by("Deleting uWSGI application: #{@new_resource}") do
-              file "#{application_file}" do
+              file application_file do
                 action :delete
               end
               Chef::Log.info("#{@new_resource} application deleted.")
@@ -112,8 +112,8 @@ class Chef
       # Disable application
       def disable_app
         converge_by("Disabling uWSGI application: #{@new_resource}") do
-          link "#{application_link}" do
-            to "#{application_file}"
+          link application_link do
+            to application_file
             action :delete
           end
         end
@@ -122,8 +122,8 @@ class Chef
       # Enable application
       def enable_app
         converge_by("Enabling uWSGI application: #{@new_resource}") do
-          link "#{application_link}" do
-            to "#{application_file}"
+          link application_link do
+            to application_file
             action :create
           end
           Chef::Log.info("#{@new_resource} application enabled.")
