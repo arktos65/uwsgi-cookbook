@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-default['uwsgi']['version'] = "1.9.19"
+default['uwsgi']['version'] = "2.0.9"
 default['uwsgi']['download_url'] = "http://projects.unbit.it/downloads"
 default['uwsgi']['service'] = "uwsgi-server"
 

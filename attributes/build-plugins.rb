@@ -110,7 +110,7 @@ default['uwsgi']['plugins'] = [
     { :name => "router_xmldir", :compile => false },
     { :name => "rpc", :compile => false },
     { :name => "rrdtool", :compile => false },
-    { :name => "rsyslog", :compile => false },
+    { :name => "rsyslog", :compile => true },
     { :name => "ruby19", :compile => false },
     { :name => "servlet", :compile => false },
     { :name => "signal", :compile => false },
