@@ -1,6 +1,11 @@
 UWSGI COOKBOOK CHANGELOG
 ========================
 
+1.0.2
+-----
+- Enable `rsyslog` plugin support in default configuration.
+- Default core build is now `v2.0.9`.
+
 1.0.1
 -----
 - Added Travis CI testing support.
