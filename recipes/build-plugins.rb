@@ -30,20 +30,28 @@ directory node['uwsgi']['core']['directory'] do
   action :create
 end
 
-node['uwsgi']['plugins'].each do | plugin |
+directory node['uwsgi']['plugins']['directory'] do
+  owner "root"
+  group "root"
+  mode 00755
+  action :create
+end
+
+# Compile the desired plugins and copy them to their home
+node['uwsgi']['plugins']['install'].each do | plugin |
   if plugin['compile']
     bash "compiling_#{plugin['name']}_plugin" do
       cwd "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['uwsgi']['version']}"
       code <<-EOH
-        python uwsgiconfig.py --plugin plugins/#{plugin['name']} core
+        python uwsgiconfig.py --plugin plugins/#{plugin['name']} package
       EOH
     end
     bash "installing_#{plugin['name']}_plugin" do
       cwd "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['uwsgi']['version']}"
       code <<-EOH
-        cp -fv #{plugin['name']}_plugin.so #{node['uwsgi']['core']['directory']}/
-        chown root:root #{node['uwsgi']['core']['directory']}/#{plugin['name']}_plugin.so
-        chmod 0755 #{node['uwsgi']['core']['directory']}/#{plugin['name']}_plugin.so
+        cp -fv #{plugin['name']}_plugin.so #{node['uwsgi']['plugins']['directory']}/
+        chown root:root #{node['uwsgi']['plugins']['directory']}/#{plugin['name']}_plugin.so
+        chmod 0755 #{node['uwsgi']['plugins']['directory']}/#{plugin['name']}_plugin.so
       EOH
     end
   end

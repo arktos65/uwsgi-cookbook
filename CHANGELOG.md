@@ -1,10 +1,14 @@
 UWSGI COOKBOOK CHANGELOG
 ========================
 
+1.0.3
+-----
+- Improvements to the packaging of uWSGI plugins.
+
 1.0.2
 -----
 - Enable `rsyslog` plugin support in default configuration.
-- Default core build is now `v2.0.9`.
+- Default uWSGI core build is now `v2.0.9`.
 
 1.0.1
 -----
