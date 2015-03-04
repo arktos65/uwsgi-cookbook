@@ -23,18 +23,28 @@
 
 include_recipe "uwsgi::_download"
 
-bash "build_uwsgi_#{node['uwsgi']['version']}_core" do
-  cwd "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['uwsgi']['version']}"
-  code <<-EOH
-    python uwsgiconfig.py --build core
-  EOH
-end
-
 directory node['uwsgi']['core']['directory'] do
   owner "root"
   group "root"
   mode 00755
   action :create
+end
+
+# Load the build template for the uWSGI core
+template "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['uwsgi']['version']}/buildconf/uwsgi_modular.ini" do
+  source "build_uwsgi_modular.ini.erb"
+  owner "root"
+  group "root"
+  mode 0755
+  action :create
+end
+
+# Compile the uWSGI core binary
+bash "build_uwsgi_#{node['uwsgi']['version']}_core" do
+  cwd "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['uwsgi']['version']}"
+  code <<-EOH
+    python uwsgiconfig.py --build uwsgi_modular
+  EOH
 end
 
 bash "installing_uwsgi_#{node['uwsgi']['version']}_core_binary" do
