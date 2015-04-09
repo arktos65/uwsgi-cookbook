@@ -1,6 +1,11 @@
 UWSGI COOKBOOK CHANGELOG
 ========================
 
+1.1.0
+-----
+- Includes support for Emperor server configuration.  Set `node['uwsgi']['emperor']['enable']` to true.
+- Deprecated Test Kitchen suite for Ubuntu 12.04.
+
 1.0.3
 -----
 - Improvements to the packaging of uWSGI plugins.

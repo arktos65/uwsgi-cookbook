@@ -6,10 +6,15 @@ provisioner:
   name: chef_solo
 
 platforms:
-  - name: ubuntu-12.04
   - name: ubuntu-14.04
 
 suites:
   - name: default
     run_list: recipe[uwsgi::default]
     attributes:
+  - name: emperor
+    run_list: recipe[uwsgi::default]
+    attributes:
+      uwsgi:
+        emperor:
+          enable: true
