@@ -23,13 +23,21 @@
 
 # Create the runtime directories
 log "Creating uWSGI runtime directories"
-node['uwsgi']['config']['directories'].each do | key, value |
+node['uwsgi']['config']['directories'].each do |key, value|
   directory value do
     owner "root"
     group "root"
     mode 00755
     action :create
   end
+end
+
+directory node['uwsgi']['config']['emperor'] do
+  owner 'root'
+  group 'root'
+  mode 00755
+  action :create
+  only_if { node['uwsgi']['emperor']['enable'] == true }
 end
 
 if node['platform_family'] == 'debian'
