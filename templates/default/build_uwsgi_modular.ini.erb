@@ -1,4 +1,23 @@
 [uwsgi]
 inherit = base
+xml = auto
+yaml = true
+json = auto
+zeromq = auto
+ssl = auto
+pcre = true
+routing = true
+matheval = auto
+debug = false
+unbit = false
+xml_implementation = libxml2
+yaml_implementation = auto
+malloc_implementation = libc
+#
 plugin_dir = <%= node['uwsgi']['plugins']['directory'] %>
 embedded_plugins = null
+#
+locking = auto
+event = auto
+timer = auto
+filemonitor = auto

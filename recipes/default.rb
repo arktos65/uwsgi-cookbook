@@ -25,6 +25,15 @@ include_recipe 'rsyslog'
 include_recipe 'build-essential'
 include_recipe 'python'
 
+# Add other dependencies
+if node['uwsgi']['pcre']['enable'] == true
+  if node['platform_family'] == 'debian'
+    package ['libpcre3', 'libpcre3-dev'] do
+      action :install
+    end
+  end
+end
+
 # Compile the uWSGI core application
 include_recipe 'uwsgi::build-core'
 include_recipe 'uwsgi::build-plugins'

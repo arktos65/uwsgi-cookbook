@@ -4,7 +4,7 @@ maintainer_email 'ops@pulselocker.com'
 license          'Apache 2.0'
 description      'Installs/Configures uWSGI application server.'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '1.1.0'
+version          '1.1.1'
 
 recipe 'uwsgi', 'Default recipe builds core, plugins, and installs runtime environment.'
 recipe 'uwsgi::build-core', 'Builds the uWSGI core program.'

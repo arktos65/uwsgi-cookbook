@@ -23,5 +23,6 @@ default['uwsgi']['download_url'] = 'http://projects.unbit.it/downloads'
 default['uwsgi']['service'] = 'uwsgi-server'
 
 # Other configuration settings
+default['uwsgi']['pcre']['enable'] = true
 default['uwsgi']['emperor']['enable'] = false
 

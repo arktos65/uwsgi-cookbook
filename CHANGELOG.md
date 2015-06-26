@@ -1,6 +1,11 @@
 UWSGI COOKBOOK CHANGELOG
 ========================
 
+1.1.1 (2015-06-25)
+------------------
+- Installs libpcre3 and libpcre3-dev packages on Debian flavored distributions.
+- Changed build_uwsgi_moduler.ini file to support PCRE and internal routing by default for modular build.
+
 1.1.0
 -----
 - Includes support for Emperor server configuration.  Set `node['uwsgi']['emperor']['enable']` to true.
