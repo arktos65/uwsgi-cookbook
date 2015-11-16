@@ -24,7 +24,7 @@ template "/etc/logrotate.d/uwsgi.ini" do
   source "logrotate_uwsgi.ini.erb"
   owner "root"
   group "root"
-  mode 0750
+  mode 0644
   action :create
   notifies :restart, "service[rsyslog]", :delayed
 end
