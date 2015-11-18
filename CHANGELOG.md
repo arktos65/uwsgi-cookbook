@@ -1,6 +1,10 @@
 UWSGI COOKBOOK CHANGELOG
 ========================
 
+1.1.2 (2015-11-16)
+------------------
+- Correct attributes & allow logrotate to process file.
+
 1.1.1 (2015-06-25)
 ------------------
 - Installs libpcre3 and libpcre3-dev packages on Debian flavored distributions.
