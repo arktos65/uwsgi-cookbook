@@ -11,7 +11,7 @@ allow flexible configuration.
 
 ## Supported Platforms
 
-Supported platforms:  14.04.
+Supported platforms:  Ubuntu Server 14.04.
 
 Resources
 ---------
