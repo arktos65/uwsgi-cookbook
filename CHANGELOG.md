@@ -6,6 +6,7 @@ UWSGI COOKBOOK CHANGELOG
 - Updated Travis configuration to support Ruby 2.2.1.
 - Modified Rakefile to require Ruby 2.2.1 or higher for foodcritic.
 - Changed package directive in default recipe per `foodcritic` recommendation.
+- Updated `metadata.rb` to comply with Chef 11/12 compatibility per `foodcritic`.
 
 1.1.2 (2015-11-16)
 ------------------
