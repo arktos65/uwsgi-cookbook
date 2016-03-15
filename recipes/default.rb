@@ -27,10 +27,9 @@ include_recipe 'python'
 
 # Add other dependencies
 if node['uwsgi']['pcre']['enable'] == true
-  if node['platform_family'] == 'debian'
-    package ['libpcre3', 'libpcre3-dev'] do
-      action :install
-    end
+  package ['libpcre3', 'libpcre3-dev'] do
+    action :install
+    only_if { node['platform_family'] == 'debian' }
   end
 end
 

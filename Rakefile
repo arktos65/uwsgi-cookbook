@@ -2,13 +2,13 @@
 
 desc "Runs foodcritic linter"
 task :foodcritic do
-  if Gem::Version.new("1.9.3") <= Gem::Version.new(RUBY_VERSION.dup)
+  if Gem::Version.new("2.2.1") <= Gem::Version.new(RUBY_VERSION.dup)
     sandbox = File.join(File.dirname(__FILE__), %w{tmp foodcritic cookbook})
     prepare_foodcritic_sandbox(sandbox)
 
     sh "foodcritic --epic-fail any #{File.dirname(sandbox)}"
   else
-    puts "WARN: foodcritic run is skipped as Ruby #{RUBY_VERSION} is < 1.9.3."
+    puts "WARN: foodcritic run is skipped as Ruby #{RUBY_VERSION} is < 2.2.1."
   end
 end
 
