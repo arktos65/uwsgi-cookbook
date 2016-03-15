@@ -1,6 +1,10 @@
 UWSGI COOKBOOK CHANGELOG
 ========================
 
+1.1.3 (2016-03-15)
+------------------
+- Updated Travis configuration to support Ruby 2.2.1.
+
 1.1.2 (2015-11-16)
 ------------------
 - Correct attributes & allow logrotate to process file.
