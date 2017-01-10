@@ -1,6 +1,13 @@
 UWSGI COOKBOOK CHANGELOG
 ========================
 
+1.2.0 (2017-01-10)
+------------------
+- Added Ubuntu 16.04 to Test Kitchen.
+- Bumped `rsyslog` cookbook version.
+- Bumped `build-essential` cookbook version.
+- Bumped `uwsgi` source version from 2.0.9 to 2.0.14.
+
 1.1.3 (2016-03-15)
 ------------------
 - Updated Travis configuration to support Ruby 2.2.1.

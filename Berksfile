@@ -2,6 +2,6 @@ source "https://supermarket.getchef.com"
 
 metadata
 
-cookbook 'build-essential', '~>2.0.6'
+cookbook 'build-essential', '~>7.0.3'
 cookbook 'python', '~>1.4.6'
-cookbook 'rsyslog', '~>1.12.2'
+cookbook 'rsyslog', '~> 5.1.0'
