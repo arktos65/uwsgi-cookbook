@@ -23,6 +23,12 @@
 
 include_recipe "uwsgi::_download"
 
+directory node['uwsgi']['core']['root'] do
+  owner "root"
+  group "root"
+  mode 00755
+  action :create
+end
 directory node['uwsgi']['core']['directory'] do
   owner "root"
   group "root"
