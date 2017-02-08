@@ -56,7 +56,7 @@ node['uwsgi']['plugins']['install'].each do | plugin |
     bash "installing_#{plugin['name']}_plugin" do
       cwd "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['uwsgi']['version']}"
       code <<-EOH
-        cp -fv #{plugin['name']}_plugin.so #{node['uwsgi']['plugins']['directory']}/
+        mv -fv #{node['uwsgi']['plugins']['root']}/#{plugin['name']}_plugin.so #{node['uwsgi']['plugins']['directory']}/
         chown root:root #{node['uwsgi']['plugins']['directory']}/#{plugin['name']}_plugin.so
         chmod 0644 #{node['uwsgi']['plugins']['directory']}/#{plugin['name']}_plugin.so
       EOH
