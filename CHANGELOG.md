@@ -1,6 +1,10 @@
 UWSGI COOKBOOK CHANGELOG
 ========================
 
+1.2.1 (2017-02-08)
+------------------
+- Fixed issue #13 where service fails to start with `$ service uwsgi start` command.
+
 1.2.0 (2017-01-10)
 ------------------
 - Added Ubuntu 16.04 to Test Kitchen.
