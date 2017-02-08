@@ -32,35 +32,35 @@ template "#{node['uwsgi']['config']['directories']['share_conf']}/default.ini" d
   source "default.ini"
   owner "root"
   group "root"
-  mode 0755
+  mode 0644
   action :create
 end
 template "#{node['uwsgi']['config']['directories']['share_init']}/do_command" do
   source "do_command.sh"
   owner "root"
   group "root"
-  mode 0755
+  mode 0644
   action :create
 end
 template "#{node['uwsgi']['config']['directories']['share_init']}/snippets" do
   source "snippets.sh"
   owner "root"
   group "root"
-  mode 0755
+  mode 0644
   action :create
 end
 template "#{node['uwsgi']['config']['directories']['share_init']}/specific_daemon" do
   source "specific_daemon.sh"
   owner "root"
   group "root"
-  mode 0755
+  mode 0644
   action :create
 end
 template "/etc/default/uwsgi" do
   source "default_uwsgi.ini"
   owner "root"
   group "root"
-  mode 0744
+  mode 0644
   action :create
 end
 

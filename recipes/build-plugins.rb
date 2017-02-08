@@ -51,7 +51,7 @@ node['uwsgi']['plugins']['install'].each do | plugin |
       code <<-EOH
         cp -fv #{plugin['name']}_plugin.so #{node['uwsgi']['plugins']['directory']}/
         chown root:root #{node['uwsgi']['plugins']['directory']}/#{plugin['name']}_plugin.so
-        chmod 0755 #{node['uwsgi']['plugins']['directory']}/#{plugin['name']}_plugin.so
+        chmod 0644 #{node['uwsgi']['plugins']['directory']}/#{plugin['name']}_plugin.so
       EOH
     end
   end

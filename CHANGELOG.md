@@ -4,6 +4,7 @@ UWSGI COOKBOOK CHANGELOG
 1.2.1 (2017-02-08)
 ------------------
 - Fixed issue #13 where service fails to start with `$ service uwsgi start` command.
+- Modified many file permissions from 0755 to 0644 for improved security.
 
 1.2.0 (2017-01-10)
 ------------------

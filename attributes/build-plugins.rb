@@ -20,7 +20,7 @@
 ###
 # Plugins - override :compile to determine whether to compile a plugin or not
 ###
-default['uwsgi']['plugins']['directory'] = '/usr/lib/uwsgi'
+default['uwsgi']['plugins']['directory'] = '/usr/lib/uwsgi/plugins'
 default['uwsgi']['plugins']['install'] = [
     { :name => "airbrake", :compile => false },
     { :name => "alarm_curl", :compile => false },
