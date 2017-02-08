@@ -55,3 +55,13 @@ bash "installing_uwsgi_#{node['uwsgi']['version']}_core_binary" do
   chmod 0755 #{node['uwsgi']['core']['directory']}/#{node['uwsgi']['core']['binary']}
   EOH
 end
+
+# Add required symlinks
+link '/etc/alternatives/uwsgi' do
+  to "#{node['uwsgi']['core']['directory']}/#{node['uwsgi']['core']['binary']}"
+  action :create
+end
+link '/usr/bin/uwsgi' do
+  to '/etc/alternatives/uwsgi'
+  action :create
+end
