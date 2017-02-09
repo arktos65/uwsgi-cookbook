@@ -73,7 +73,6 @@ template "/etc/init.d/uwsgi" do
   action :create
 end
 service "uwsgi" do
-  Chef::Provider::Service::Init::Debian
   supports :start => true, :stop => true, :status => true, :restart => true, :reload => true
   action [ :enable, :start ]
 end
