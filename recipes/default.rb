@@ -23,7 +23,7 @@ if node['platform_family'] == 'debian'
 end
 include_recipe 'rsyslog'
 include_recipe 'build-essential'
-include_recipe 'python'
+include_recipe 'poise-python'
 
 # Add other dependencies
 if node['uwsgi']['pcre']['enable'] == true
