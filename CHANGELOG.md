@@ -1,6 +1,13 @@
 UWSGI COOKBOOK CHANGELOG
 ========================
 
+1.3.0 (2017-08-09)
+------------------
+- Deprecated `python` cookbook in favor of `poise-python`.
+- Refactor `metadata.rb` for correct cookbook dependencies.
+- Pinned cookbook to support Chef 12.
+- Added testing framework.
+
 1.2.1 (2017-02-08)
 ------------------
 - Fixed issue #13 where service fails to start with `$ service uwsgi start` command.
