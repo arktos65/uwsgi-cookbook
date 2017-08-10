@@ -16,7 +16,7 @@ addons:
 bundler_args: --without='vagrant'
 
 install:
-  - cd ./demo-cookbook
+  - cd /
   - gem install bundler
 
 branches:
