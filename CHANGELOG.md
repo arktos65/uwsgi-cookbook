@@ -6,6 +6,7 @@ UWSGI COOKBOOK CHANGELOG
 - Fixed license metadata to satisfy Foodcritic.
 - [RESOLVED] Python command missing on Ubuntu 16.04 test #16
 - Default core build is now uWSGI 2.0.15.
+- Updated Travis configuration to use Ruby 2.3.1.
 
 1.3.0 (2017-08-09)
 ------------------
