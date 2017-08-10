@@ -25,6 +25,20 @@ include_recipe 'rsyslog'
 include_recipe 'build-essential'
 include_recipe 'poise-python'
 
+# Workaround for bug in Python 2.7 apt package (Issue #16)
+unless File.exists?('/usr/bin/python')
+  link '/usr/bin/python' do
+    to '/usr/bin/python2.7'
+    owner 'root'
+    group 'root'
+  end
+  link '/usr/bin/python2' do
+    to '/usr/bin/python2.7'
+    owner 'root'
+    group 'root'
+  end
+end
+
 # Add other dependencies
 if node['uwsgi']['pcre']['enable'] == true
   package ['libpcre3', 'libpcre3-dev'] do
