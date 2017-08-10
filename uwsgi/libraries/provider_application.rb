@@ -20,7 +20,6 @@ class Chef
   class Provider
     class Uwsgi
       class Application < Chef::Provider
-
         def load_current_resource
           @current_resource = Chef::Resource::Uwsgi.new(@new_resource.name)
           @current_resource.source(@new_resource.source)

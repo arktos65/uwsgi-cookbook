@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Cookbook Name:: uwsgi
 # Recipe:: build-plugins
@@ -21,32 +23,32 @@
 # Recipe to compile all the required plugins
 ###
 
-include_recipe "uwsgi::_download"
+include_recipe 'uwsgi::_download'
 
 directory node['uwsgi']['core']['directory'] do
-  owner "root"
-  group "root"
-  mode 00755
+  owner 'root'
+  group 'root'
+  mode 0o755
   action :create
 end
 
 directory node['uwsgi']['plugins']['root'] do
-  owner "root"
-  group "root"
-  mode 00755
+  owner 'root'
+  group 'root'
+  mode 0o755
   action :create
 end
 
 directory node['uwsgi']['plugins']['directory'] do
-  owner "root"
-  group "root"
-  mode 00755
+  owner 'root'
+  group 'root'
+  mode 0o755
   action :create
 end
 
 # Compile the desired plugins and copy them to their home
-node['uwsgi']['plugins']['install'].each do | plugin |
-  if plugin['compile']
+node['uwsgi']['plugins']['install'].each do |plugin|
+  next unless plugin['compile']
     bash "compiling_#{plugin['name']}_plugin" do
       cwd "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['uwsgi']['version']}"
       code <<-EOH
@@ -61,5 +63,4 @@ node['uwsgi']['plugins']['install'].each do | plugin |
         chmod 0644 #{node['uwsgi']['plugins']['directory']}/#{plugin['name']}_plugin.so
       EOH
     end
-  end
 end

@@ -11,8 +11,8 @@ supports         'ubuntu', '>= 14.04'
 chef_version     '~> 12'
 
 recipe 'uwsgi', 'Default recipe builds core, plugins, and installs runtime environment.'
-recipe 'uwsgi::build-core', 'Builds the uWSGI core program.'
-recipe 'uwsgi::build-plugins', 'Builds the uWSGI plugins.'
+recipe 'uwsgi::build_core', 'Builds the uWSGI core program.'
+recipe 'uwsgi::build_plugins', 'Builds the uWSGI plugins.'
 recipe 'uwsgi::configure', 'Creates and configures the runtime environment.'
 
 depends 'apt'

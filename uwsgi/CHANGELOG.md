@@ -7,6 +7,9 @@ UWSGI COOKBOOK CHANGELOG
 - [RESOLVED] Python command missing on Ubuntu 16.04 test #16
 - Default core build is now uWSGI 2.0.15.
 - Updated Travis test harness.
+- Added Rubocop style linter support.
+- Added Test Kitchen testing in Travis CI using Docker.
+- Converted hashes to Ruby 1.9 syntax throughout source code.
 
 1.3.0 (2017-08-09)
 ------------------
