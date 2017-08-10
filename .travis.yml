@@ -26,7 +26,7 @@ branches:
 services: docker
 
 env:
-  - INSTANCE=ubuntu-1604
+  - INSTANCE=ubuntu-1404
 
 before_script:
   - eval "$(/opt/chefdk/bin/chef shell-init bash)"
