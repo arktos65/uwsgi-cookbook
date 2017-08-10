@@ -1,6 +1,13 @@
 UWSGI COOKBOOK CHANGELOG
 ========================
 
+1.3.1 (2017-08-10)
+------------------
+- Fixed license metadata to satisfy Foodcritic.
+- [RESOLVED] Python command missing on Ubuntu 16.04 test #16
+- Default core build is now uWSGI 2.0.15.
+- Updated Travis test harness.
+
 1.3.0 (2017-08-09)
 ------------------
 - Deprecated `python` cookbook in favor of `poise-python`.

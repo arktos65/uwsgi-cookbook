@@ -1,6 +1,41 @@
 language: ruby
-gemfile:
-   - test/support/Gemfile
-rvm:
-  - 2.2.2
-script: bundle exec rake foodcritic
+notifications:
+  email: false
+
+sudo: false
+
+dist: trusty
+
+addons:
+  apt:
+    sources:
+      - chef-stable-trusty
+    packages:
+      - chefdk
+
+bundler_args: --without='vagrant'
+
+install:
+  - cd ./uwsgi-cookbook
+  - gem install bundler
+
+branches:
+  only:
+    - master
+
+services: docker
+
+env:
+  - INSTANCE=ubuntu-1604
+
+before_script:
+  - eval "$(/opt/chefdk/bin/chef shell-init bash)"
+  - /opt/chefdk/embedded/bin/chef --version
+  - /opt/chefdk/embedded/bin/cookstyle --version
+  - /opt/chefdk/embedded/bin/foodcritic --version
+
+script:
+  # Run index to make some tetchy gems work
+  - bundle --full-index
+  # Test suite
+  - bundle exec rake travis
