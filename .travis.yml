@@ -16,7 +16,7 @@ addons:
 bundler_args: --without='vagrant'
 
 install:
-  - cd ./uwsgi-cookbook
+  - cd ./uwsgi
   - gem install bundler
 
 branches:
