@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Cookbook Name:: uwsgi
 # Recipe:: default
@@ -18,15 +20,14 @@
 #
 
 # Install dependencies if necessary
-if node['platform_family'] == 'debian'
-  include_recipe 'apt::default'
-end
+include_recipe 'apt::default' if node['platform_family'] == 'debian'
+
 include_recipe 'rsyslog'
 include_recipe 'build-essential'
 include_recipe 'poise-python'
 
 # Workaround for bug in Python 2.7 apt package (Issue #16)
-unless File.exists?('/usr/bin/python')
+unless File.exist?('/usr/bin/python')
   link '/usr/bin/python' do
     to '/usr/bin/python2.7'
     owner 'root'
@@ -40,16 +41,16 @@ unless File.exists?('/usr/bin/python')
 end
 
 # Add other dependencies
-if node['uwsgi']['pcre']['enable'] == true
-  package ['libpcre3', 'libpcre3-dev'] do
+if node['platform_family'] == 'debian' && node['uwsgi']['pcre']['enable']
+  package 'libpcre3' do
     action :install
-    only_if { node['platform_family'] == 'debian' }
+  end
+  package 'libpcre3-dev' do
+    action :install
   end
 end
 
 # Compile the uWSGI core application
-include_recipe 'uwsgi::build-core'
-include_recipe 'uwsgi::build-plugins'
+include_recipe 'uwsgi::build_core'
+include_recipe 'uwsgi::build_plugins'
 include_recipe 'uwsgi::configure'
-
-

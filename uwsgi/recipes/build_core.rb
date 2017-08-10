@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Cookbook Name:: uwsgi
 # Recipe:: build-core
@@ -21,21 +23,21 @@
 # Recipe to build the uWSGI core from source
 ###
 
-include_recipe "uwsgi::_download"
+include_recipe 'uwsgi::_download'
 
 directory node['uwsgi']['core']['directory'] do
-  owner "root"
-  group "root"
-  mode 00755
+  owner 'root'
+  group 'root'
+  mode 0o755
   action :create
 end
 
 # Load the build template for the uWSGI core
 template "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['uwsgi']['version']}/buildconf/uwsgi_modular.ini" do
-  source "build_uwsgi_modular.ini.erb"
-  owner "root"
-  group "root"
-  mode 0755
+  source 'build_uwsgi_modular.ini.erb'
+  owner 'root'
+  group 'root'
+  mode 0o755
   action :create
 end
 

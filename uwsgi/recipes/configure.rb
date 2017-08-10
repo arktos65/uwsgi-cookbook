@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Cookbook Name:: uwsgi
 # Recipe:: configure
@@ -22,24 +24,24 @@
 ###
 
 # Create the runtime directories
-log "Creating uWSGI runtime directories"
+log 'Creating uWSGI runtime directories'
 node['uwsgi']['config']['directories'].each do |key, value|
+  log "#{key} = #{value}"
   directory value do
-    owner "root"
-    group "root"
-    mode 00755
+    owner 'root'
+    group 'root'
+    mode 0o755
     action :create
   end
 end
 
-directory node['uwsgi']['config']['emperor'] do
-  owner 'root'
-  group 'root'
-  mode 00755
-  action :create
-  only_if { node['uwsgi']['emperor']['enable'] == true }
+if node['uwsgi']['emperor']['enable']
+  directory node['uwsgi']['config']['emperor'] do
+    owner 'root'
+    group 'root'
+    mode 0o755
+    action :create
+  end
 end
 
-if node['platform_family'] == 'debian'
-  include_recipe "uwsgi::_debian"
-end
+include_recipe 'uwsgi::_debian' if node['platform_family'] == 'debian'

@@ -22,7 +22,6 @@ require 'chef/resource'
 class Chef
   class Resource
     class Uwsgi < Chef::Resource
-
       def initialize(name, run_context=nil)
         super
         @resource_name = :source
@@ -39,8 +38,8 @@ class Chef
         set_or_return(
             :source,
             arg,
-            :kind_of => String,
-            :required => true
+            kind_of: String,
+            required: true
         )
       end
     end
