@@ -16,7 +16,6 @@ addons:
 bundler_args: --without='vagrant'
 
 install:
-  - cd ./uwsgi
   - gem install bundler
 
 branches:

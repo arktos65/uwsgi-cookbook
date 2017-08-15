@@ -1,6 +1,10 @@
 UWSGI COOKBOOK CHANGELOG
 ========================
 
+1.3.2 (2017-08-15)
+------------------
+- Restructured directory to work with Berkshelf.
+
 1.3.1 (2017-08-10)
 ------------------
 - Fixed license metadata to satisfy Foodcritic.
