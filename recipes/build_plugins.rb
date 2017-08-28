@@ -4,7 +4,7 @@
 # Cookbook Name:: uwsgi
 # Recipe:: build-plugins
 #
-# Copyright 2014, Pulselocker, Inc.
+# Copyright 2014-2017, Pulselocker, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,29 +22,6 @@
 ###
 # Recipe to compile all the required plugins
 ###
-
-include_recipe 'uwsgi::_download'
-
-directory node['uwsgi']['core']['directory'] do
-  owner 'root'
-  group 'root'
-  mode 0o755
-  action :create
-end
-
-directory node['uwsgi']['plugins']['root'] do
-  owner 'root'
-  group 'root'
-  mode 0o755
-  action :create
-end
-
-directory node['uwsgi']['plugins']['directory'] do
-  owner 'root'
-  group 'root'
-  mode 0o755
-  action :create
-end
 
 # Compile the desired plugins and copy them to their home
 node['uwsgi']['plugins']['install'].each do |plugin|

@@ -4,7 +4,7 @@
 # Cookbook Name:: uwsgi
 # Recipe:: configure
 #
-# Copyright 2014, Pulselocker, Inc.
+# Copyright 2014-2017, Pulselocker, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -44,4 +44,4 @@ if node['uwsgi']['emperor']['enable']
   end
 end
 
-include_recipe 'uwsgi::_debian' if node['platform_family'] == 'debian'
+include_recipe 'uwsgi::debian' if node['platform_family'] == 'debian'

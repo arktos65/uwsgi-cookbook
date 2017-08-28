@@ -75,7 +75,6 @@ Layout/TrailingBlankLines:
     - 'libraries/provider_application.rb'
     - 'libraries/resource_uwsgi.rb'
     - 'metadata.rb'
-    - 'recipes/_download.rb'
     - 'recipes/build_core.rb'
 
 # Offense count: 2
