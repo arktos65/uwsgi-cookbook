@@ -4,7 +4,7 @@
 # Cookbook Name:: uwsgi
 # Recipe:: build-core
 #
-# Copyright 2014, Pulselocker, Inc.
+# Copyright 2014-2017, Pulselocker, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -23,21 +23,12 @@
 # Recipe to build the uWSGI core from source
 ###
 
-include_recipe 'uwsgi::_download'
-
-directory node['uwsgi']['core']['directory'] do
-  owner 'root'
-  group 'root'
-  mode 0o755
-  action :create
-end
-
 # Load the build template for the uWSGI core
 template "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['uwsgi']['version']}/buildconf/uwsgi_modular.ini" do
   source 'build_uwsgi_modular.ini.erb'
   owner 'root'
   group 'root'
-  mode 0o755
+  mode '0755'
   action :create
 end
 

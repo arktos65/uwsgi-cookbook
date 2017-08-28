@@ -2,7 +2,7 @@
 # Cookbook Name:: uwsgi
 # Recipe:: build-plugins
 #
-# Copyright 2014, Pulselocker, Inc.
+# Copyright 2014-2017, Pulselocker, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the 'License');
 # you may not use this file except in compliance with the License.

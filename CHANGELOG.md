@@ -1,6 +1,11 @@
 UWSGI COOKBOOK CHANGELOG
 ========================
 
+1.3.3 (2017-08-24)
+------------------
+- Refactored code to prevent resource duplication.
+- Updated copyright information.
+
 1.3.2 (2017-08-15)
 ------------------
 - Restructured directory to work with Berkshelf.
