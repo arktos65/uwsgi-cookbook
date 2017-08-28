@@ -23,9 +23,13 @@
 # Prepare the environment for installation
 ###
 
+if node['platform_family'] == 'debian'
+  node.override['apt']['compile_time_update'] = true
+  include_recipe 'apt'
+end
+include_recipe 'rsyslog'
 include_recipe 'build-essential'
 include_recipe 'poise-python'
-include_recipe 'rsyslog'
 
 # Workaround for bug in Python 2.7 apt package (Issue #16)
 unless File.exist?('/usr/bin/python')
@@ -64,22 +68,29 @@ bash "extract_uwsgi_#{node['uwsgi']['version']}_source" do
   EOH
 end
 
-# Create directories required for compiling uWSGI and plugins
-%w[#{Chef::Config[:file_cache_path]}/uwsgi-#{node['uwsgi']['version']} #{Chef::Config[:file_cache_path]}/uwsgi-#{node['uwsgi']['version']}/buildconf].each do |build_path|
-  directory build_path do
-    owner 'root'
-    group 'root'
-    mode '0755'
-    action :create
-  end
+directory "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['uwsgi']['version']}/buildconf" do
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
 end
 
 # Create directories for uWSGI binaries
-%w[#{node['uwsgi']['core']['directory']} #{node['uwsgi']['plugins']['root']} #{node['uwsgi']['plugins']['directory']}].each do |path|
-  directory path do
-    owner 'root'
-    group 'root'
-    mode '0755'
-    action :create
-  end
+directory node['uwsgi']['core']['directory'] do
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
+end
+directory node['uwsgi']['plugins']['root'] do
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
+end
+directory node['uwsgi']['plugins']['directory'] do
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
 end
