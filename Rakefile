@@ -66,3 +66,6 @@ task travis: ['style', 'spec', 'integration:cloud']
 
 # Default
 task default: ['style', 'spec', 'local:vagrant']
+
+# Linter only
+task linter: ['style', 'spec']
