@@ -15,10 +15,10 @@ recipe 'uwsgi::build_core', 'Builds the uWSGI core program.'
 recipe 'uwsgi::build_plugins', 'Builds the uWSGI plugins.'
 recipe 'uwsgi::configure', 'Creates and configures the runtime environment.'
 
-depends 'apt'
-depends 'build-essential'
-depends 'poise-python'
-depends 'rsyslog'
+depends 'apt', '~> 6.1.3'
+depends 'build-essential', '~> 8.0.3'
+depends 'poise-python', '~> 1.6.0'
+depends 'rsyslog', '~> 5.1.0'
 
 
 

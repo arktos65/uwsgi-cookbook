@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 gem 'berkshelf'
+gem 'chefspec'
 gem 'docker'
 gem 'foodcritic'
-gem 'kitchen-docker'
+gem 'kitchen-dokken'
 gem 'public_suffix', '= 2.0.4'
 gem 'rake'
 gem 'rspec'
