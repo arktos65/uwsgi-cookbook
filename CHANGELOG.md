@@ -4,6 +4,7 @@ UWSGI COOKBOOK CHANGELOG
 1.3.4 (2017-09-28)
 ------------------
 - Added Ubuntu 16.04 to Travis CI testing.
+- Changed Travis testing transport from Docker to Dokken.
 - Added `linter` task to `Rakefile`.
 
 1.3.3 (2017-08-24)
