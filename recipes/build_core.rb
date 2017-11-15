@@ -24,7 +24,7 @@
 ###
 
 # Load the build template for the uWSGI core
-template "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['uwsgi']['version']}/buildconf/uwsgi_modular.ini" do
+template "#{node['uwsgi']['buildconf']}/uwsgi_modular.ini" do
   source 'build_uwsgi_modular.ini.erb'
   owner 'root'
   group 'root'

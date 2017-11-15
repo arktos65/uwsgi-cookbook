@@ -15,7 +15,7 @@ namespace :style do
   FoodCritic::Rake::LintTask.new(:chef) do |t|
     t.options = {
         fail_tags: ['any'],
-        tags: ['~FC064', '~FC065', '~FC007', '~FC005']
+        tags: ['~FC064', '~FC065', '~FC007']
     }
   end
 end
@@ -69,5 +69,5 @@ task travis: ['style', 'spec', 'integration:cloud']
 # Default
 task default: ['style', 'spec', 'local:vagrant']
 
-# Linter only
+# Linting only
 task linter: ['style', 'spec']
