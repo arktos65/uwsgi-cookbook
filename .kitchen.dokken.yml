@@ -29,9 +29,3 @@ platforms:
 suites:
   - name: default
     run_list: recipe[uwsgi::default]
-  - name: emperor
-    run_list: recipe[uwsgi::default]
-      attributes:
-        uwsgi:
-          emperor:
-            enable: true

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 name             'uwsgi'
 maintainer       'Pulselocker, Inc.'
 maintainer_email 'ops@pulselocker.com'
@@ -19,8 +21,3 @@ depends 'apt', '~> 6.1.3'
 depends 'build-essential', '~> 8.0.3'
 depends 'poise-python', '~> 1.6.0'
 depends 'rsyslog', '~> 5.1.0'
-
-
-
-
-
