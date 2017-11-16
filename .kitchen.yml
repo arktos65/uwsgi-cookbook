@@ -14,9 +14,22 @@ suites:
   - name: default
     run_list: recipe[uwsgi::default]
     attributes:
+      uwsgi:
+        emperor:
+          enable: false
+      authorization:
+        sudo:
+          groups: ['admin', 'wheel', 'sysadmin']
+          users: ['vagrant']
+          passwordless: 'true'
   - name: emperor
     run_list: recipe[uwsgi::default]
     attributes:
       uwsgi:
         emperor:
           enable: true
+      authorization:
+        sudo:
+          groups: ['admin', 'wheel', 'sysadmin']
+          users: ['vagrant']
+          passwordless: 'true'

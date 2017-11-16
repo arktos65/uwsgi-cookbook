@@ -1,0 +1,38 @@
+DEPENDENCIES
+  apt
+  build-essential
+  poise-python
+  rsyslog
+  uwsgi
+    path: .
+    metadata: true
+
+GRAPH
+  apt (6.1.4)
+  build-essential (8.0.3)
+    mingw (>= 1.1)
+    seven_zip (>= 0.0.0)
+  compat_resource (12.19.0)
+  mingw (2.0.1)
+    seven_zip (>= 0.0.0)
+  ohai (5.2.0)
+  poise (2.8.1)
+  poise-archive (1.5.0)
+    poise (~> 2.6)
+  poise-languages (2.1.1)
+    poise (~> 2.5)
+    poise-archive (~> 1.0)
+  poise-python (1.6.0)
+    poise (~> 2.7)
+    poise-languages (~> 2.0)
+  rsyslog (5.1.0)
+    compat_resource (>= 12.14.6)
+  seven_zip (2.0.2)
+    windows (>= 1.2.2)
+  uwsgi (1.3.4)
+    apt (~> 6.1.3)
+    build-essential (~> 8.0.3)
+    poise-python (~> 1.6.0)
+    rsyslog (~> 5.1.0)
+  windows (3.4.0)
+    ohai (>= 4.0.0)

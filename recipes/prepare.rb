@@ -68,7 +68,7 @@ bash "extract_uwsgi_#{node['uwsgi']['version']}_source" do
   EOH
 end
 
-directory "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['uwsgi']['version']}/buildconf" do
+directory node['uwsgi']['buildconf'] do
   owner 'root'
   group 'root'
   mode '0755'

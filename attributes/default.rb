@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Cookbook Name:: uwsgi
 # Recipe:: default
@@ -25,4 +27,4 @@ default['uwsgi']['service'] = 'uwsgi-server'
 # Other configuration settings
 default['uwsgi']['pcre']['enable'] = true
 default['uwsgi']['emperor']['enable'] = false
-
+default['uwsgi']['buildconf'] = "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['uwsgi']['version']}/buildconf"
