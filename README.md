@@ -72,7 +72,7 @@ Include `uwsgi` in your node's `run_list`:
 
 License & Authors
 -----------------
-- Author:: Sean M. Sullivan (<sean@pulselocker.com>)
+- Author:: Sean M. Sullivan (<sean@barriquesoft.com>)
 
 ```text
 Copyright:: 2014-2017 Pulselocker, Inc.
